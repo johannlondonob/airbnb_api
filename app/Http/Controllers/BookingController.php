@@ -70,6 +70,7 @@ class BookingController extends Controller
     public function update(Request $request)
     {
         $validator = Validator::make($request->all(), [
+            'bookingId' => 'required|int|exists:bookings,id',
             'userId' => 'required|int|exists:users,id',
             'propertyId' => 'required|int|exists:property,id_property',
             'checkIn' => 'required|date_format:Y-m-d',
@@ -86,7 +87,7 @@ class BookingController extends Controller
             ]);
         }
 
-        $booking = Booking::find($request->id);
+        $booking = Booking::find($request->bookingId);
         $booking->check_in = $request->checkIn;
         $booking->check_out = $request->checkOut;
         $booking->guests = $request->guests;

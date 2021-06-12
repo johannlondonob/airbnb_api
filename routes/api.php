@@ -46,6 +46,6 @@ Route::prefix('bookings')->group(function () {
     Route::get('/user/{idUser}', [\App\Http\Controllers\BookingController::class, 'byUser']);
     Route::post('/create', [\App\Http\Controllers\BookingController::class, 'create']);
     Route::put('/delete/{idBooking}', [\App\Http\Controllers\BookingController::class, 'delete']);
-    Route::put('/update/{idBookin}', [\App\Http\Controllers\BookingController::class, 'update']);
+    Route::put('/update', [\App\Http\Controllers\BookingController::class, 'update']);
     Route::delete('/delete-permanent/{idBooking}', [\App\Http\Controllers\BookingController::class, 'destroy']);
 });
