@@ -29,7 +29,8 @@ Route::prefix('user')->group(function () {
 Route::prefix('property')->group(function () {
     Route::get('/', [\App\Http\Controllers\PropertyController::class, 'index']);
     Route::post('/create', [\App\Http\Controllers\PropertyController::class, 'create']);
-    Route::delete('/delete', [\App\Http\Controllers\PropertyController::class, 'delete']);
+    Route::put('/update', [\App\Http\Controllers\PropertyController::class, 'update']);
+    Route::delete('/delete/{propertyId}', [\App\Http\Controllers\PropertyController::class, 'delete']);
 });
 
 Route::prefix('property-types')->group(function () {
